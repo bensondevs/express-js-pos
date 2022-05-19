@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "driver": {
+            "ENV": "DATABASE_DRIVER"
+        },
+        "host": {
+            "ENV": "DATABASE_HOST"
+        },
+        "user": {
+            "ENV": "DATABASE_USERNAME"
+        },
+        "password": {
+            "ENV": "DATABASE_PASSWORD"
+        },
+        "database": {
+            "ENV": "DATABASE_NAME"
+        }
+    }
+}
