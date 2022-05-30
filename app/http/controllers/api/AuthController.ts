@@ -34,7 +34,33 @@ class AuthController extends BaseController
         });
     }
 
-    //
+    /**
+     * Execute register with validation.
+     *
+     * @param request
+     * @param response
+     */
+    public register(
+        request: Request,
+        response: Response
+    ): void
+    {
+        //
+    }
+
+    /**
+     * Send reset password mail.
+     *
+     * @param request
+     * @param response
+     */
+    public sendResetPasswordMail(
+        request: Request,
+        response: Response
+    ): void
+    {
+        //
+    }
 }
 
 export default AuthController;

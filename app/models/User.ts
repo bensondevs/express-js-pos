@@ -3,7 +3,7 @@ const sequelize = new Sequelize('mysql::memory:');
 
 class User extends Model {
     declare id: number;
-};
+}
 
 User.init({
     id: {

@@ -32,7 +32,10 @@ class UserController extends BaseController
      * @param request 
      * @param response 
      */
-    public update(request: Request, response: Response): void
+    public update(
+        request: Request,
+        response: Response
+    ): void
     {
         //
     }
