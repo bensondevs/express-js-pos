@@ -1,8 +1,8 @@
-import { 
-    request as Request, 
-    response as Response 
+import {
+    request as Request,
+    response as Response
 } from 'express';
-import AuthenticationService from '../../../services/AuthenticationService';
+import AuthenticationService from '../../../services/Authentication/AuthenticationService';
 import BaseController from '../BaseController';
 import LoginRequest from '../../requests/Authentication/LoginRequest';
 
@@ -10,28 +10,29 @@ class AuthController extends BaseController
 {
     /**
      * Authentication service class instance container
-     * 
+     *
      * @var AuthenticationService
      */
     private authService = new AuthenticationService;
 
     /**
      * Execute login with validation.
-     * 
+     *
      * @param request
-     * @param response 
-     * @return void
+     * @param response
      */
-    public login(request: LoginRequest, response: Response): void
+    public async login(request: LoginRequest, response: Response)
     {
         let credentials = request.validated();
-        const user = this.authService.login(credentials);
 
-        response.send({
-            status: 'success',
-            message: 'Succesfully logged in',
-            user: user,
-        });
+        let user = await this.authService.login(credentials);
+        if (user) {
+            response.send({
+                status: 'success',
+                message: 'Successfully logged in',
+                user: user,
+            });
+        }
     }
 
     /**
@@ -40,10 +41,10 @@ class AuthController extends BaseController
      * @param request
      * @param response
      */
-    public register(
+    public async register(
         request: Request,
         response: Response
-    ): void
+    )
     {
         //
     }
@@ -54,10 +55,10 @@ class AuthController extends BaseController
      * @param request
      * @param response
      */
-    public sendResetPasswordMail(
+    public async sendResetPasswordMail(
         request: Request,
         response: Response
-    ): void
+    )
     {
         //
     }
